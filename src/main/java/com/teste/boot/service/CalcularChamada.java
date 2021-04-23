@@ -10,32 +10,27 @@ import com.teste.boot.model.Chamada;
 
 @Service
 public class CalcularChamada {
-		 
-	 
-	 public Chamada calcular(Chamada chamadaModel) {
-		 /*
-		
-		 if(chamadaModel.TipoPlano.toString().equals("FaleMais30")) {
-			 
-			 return chamadaModel;
-		 }
-		 
-		 else if(chamadaModel.TipoPlano.toString().equals("FaleMais60")) {
-			 
-			 return chamadaModel;
-		 }
- 
-		 else if(chamadaModel.TipoPlano.toString().equals("FaleMais120")) {
-	 
-			 return chamadaModel;
-		 }
-		 else {
-			 
-		 
-			 return chamadaModel;
-		 
-		 
-	 }	*/
-		 return chamadaModel;
-	 }
+
+	
+	public Chamada calcular(Chamada chamadaModel) {
+
+		if (chamadaModel.getTipo_plano().equals(Chamada.TipoPlano.FaleMais30.toString())) {
+			chamadaModel.faleMais30(chamadaModel);
+			return null;
+		}
+
+		else if (chamadaModel.getTipo_plano().equals(Chamada.TipoPlano.FaleMais60.toString())) {
+
+			return null;
+		}
+
+		else if (chamadaModel.getTipo_plano().equals(Chamada.TipoPlano.FaleMais120.toString())) {
+
+			return null;
+		} else {
+
+			return chamadaModel;
+
+		}
+	}
 }

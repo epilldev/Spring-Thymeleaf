@@ -71,15 +71,39 @@
 			</div>
 
 			<div class="container" id="calculo">
-			<form th:action="@{/chamadas/calcular}" th:object="${chamada}" method="POST">
-							
+				<form th:action="@{/chamadas/calcular}" th:object="${chamada}"
+					method="POST">
+
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							<label for="chamada">Digite seu nome</label>
-							 <input type="text"	class="form-control" id="nome" 
-							 placeholder="Nome" name="nome"	autofocus="autofocus"
-							  value=""/>								
+							<label for="chamada">Digite seu nome</label> <input type="text"
+								class="form-control" id="nome" placeholder="Nome" name="nome"
+								autofocus="autofocus" value="" />
 							<div class="invalid-feedback"></div>
+						</div>
+					</div>
+					
+					<div class="form-row">
+					<div class="form-group col-md-6">
+							<label for="chamada">Planos:</label>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="tipo_plano"
+									id="chamada" value="FaleMais30" checked> <label
+									class="form-check-label" for="chamada"> Plano FaleMais
+									30 </label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="tipo_plano"
+									id="chamada" value="FaleMais60" checked> <label
+									class="form-check-label" for="chamada"> Plano FaleMais
+									60 </label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="tipo_plano"
+									id="chamada" value="FaleMais120" checked> <label
+									class="form-check-label" for="chamada"> Plano FaleMais
+									120 </label>
+							</div>
 						</div>
 					</div>
 					<div class="form-row">
@@ -93,7 +117,7 @@
 								<option value="018">018</option>
 							</select>
 							<div class="invalid-feedback"></div>
-						</div>
+						</div>						
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-6">
