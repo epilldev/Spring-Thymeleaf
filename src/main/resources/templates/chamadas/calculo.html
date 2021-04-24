@@ -78,7 +78,7 @@
 						<div class="form-group col-md-6">
 							<label for="chamada">Digite seu nome</label> <input type="text"
 								class="form-control" id="nome" placeholder="Nome" name="nome"
-								autofocus="autofocus" value="" />
+								autofocus="autofocus" maxlength="60" value="" required/>
 							<div class="invalid-feedback"></div>
 						</div>
 					</div>
@@ -94,13 +94,13 @@
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="radio" name="tipo_plano"
-									id="chamada" value="FaleMais60" checked> <label
+									id="chamada" value="FaleMais60" > <label
 									class="form-check-label" for="chamada"> Plano FaleMais
 									60 </label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="radio" name="tipo_plano"
-									id="chamada" value="FaleMais120" checked> <label
+									id="chamada" value="FaleMais120" > <label
 									class="form-check-label" for="chamada"> Plano FaleMais
 									120 </label>
 							</div>
@@ -109,7 +109,7 @@
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="chamada">DDD (Origem)</label> <select id="chamada"
-								class="form-control" name="codigo_origem">
+								class="form-control" name="codigo_origem" required>
 								<option value="">Selecione...</option>
 								<option value="011">011</option>
 								<option value="016">016</option>
@@ -122,7 +122,7 @@
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="chamada">DDD (Destino)</label> <select id="chamada"
-								class="form-control" name="codigo_destino">
+								class="form-control" name="codigo_destino" required>
 								<option value="">Selecione...</option>
 								<option value="011">011</option>
 								<option value="016">016</option>
@@ -135,9 +135,9 @@
 
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							<label for="numero">Tempo</label> <input type="text"
+							<label for="numero">Tempo</label> <input type="number" min="0"
 								class="form-control" id="numero" name="tempo"
-								placeholder="Digite o valor em minutos" value="" />
+								placeholder="Digite o valor em minutos" value="" required/>
 							<div class="invalid-feedback"></div>
 						</div>
 					</div>
@@ -148,14 +148,6 @@
 		</section>
 
 	</div>
-
-
-
-
-
-	<footer class="layout-footer">
-		<div class="container"></div>
-	</footer>
 
 
 	<script src="/webjars/jquery/jquery.min.js"></script>
