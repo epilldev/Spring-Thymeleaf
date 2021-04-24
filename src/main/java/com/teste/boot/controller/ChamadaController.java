@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.teste.boot.model.Chamada;
-import com.teste.boot.service.CalcularChamada;
+import com.teste.boot.service.CalcularChamadaService;
 
 /*
  * Classe que contém as chamadas das telas, e faz a intermediação
@@ -21,7 +21,7 @@ public class ChamadaController {
 	
 
 	@Autowired
-    private CalcularChamada service;
+    private CalcularChamadaService service;
 	
 	@GetMapping("/calculo")
 	public String cadastrar() {		
