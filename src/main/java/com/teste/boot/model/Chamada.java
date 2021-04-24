@@ -8,12 +8,12 @@ public class Chamada {
 	protected String codigo_origem;
 	protected String codigo_destino;
 	private String nome;
-	protected double tempo = 0;
+	protected int tempo = 0;
 	protected double tarifa = 0;
 	protected double valor_plano = 0;
 	protected double valor_normal = 0;
 	private String tipo_plano;
-	
+
 	
 	
 	
@@ -42,11 +42,11 @@ public class Chamada {
 		this.nome = nome;
 	}
 
-	public double getTempo() {
+	public int getTempo() {
 		return tempo;
 	}
 
-	public void setTempo(double tempo) {
+	public void setTempo(int tempo) {
 		this.tempo = tempo;
 	}
 

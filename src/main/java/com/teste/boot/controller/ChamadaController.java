@@ -19,7 +19,7 @@ import com.teste.boot.service.CalcularChamadaService;
 @RequestMapping("/chamadas")
 public class ChamadaController {
 	
-
+	Chamada chamada = new Chamada();
 	@Autowired
     private CalcularChamadaService service;
 	
@@ -32,12 +32,20 @@ public class ChamadaController {
 	public String listar() {		
 		return "/chamadas/lista";
 	}
+	
+	@RequestMapping("/calcular")
+    public String getResultado(Model model){
+        model.addAttribute("chamada",chamada);
+        return "calculator";
+    }
 
 	@PostMapping("/calcular")
-    public String calcular(Chamada calculo){
-		service.calcular(calculo);
-        return "redirect: /chamadas/calculo";
+    public String calcular(Model model,Chamada calculo){
+		Chamada resultado = service.calcular(calculo);
+		model.addAttribute("resultado",resultado);
+        return "/chamadas/calculo";
 	}
+	
 	
 }
 
