@@ -1,5 +1,7 @@
 package com.teste.boot.model;
 
+import java.text.DecimalFormat;
+
 /*
  * Classe que contém os atributos do objeto para ser instânciado e depois manipulado 
  */
@@ -89,6 +91,7 @@ public class Chamada {
 		if (object.tempo > 30) {
 			object.tarifa = object.cota(object)*1.1;
 			object.valor_plano = object.tarifa * (object.tempo - 30);
+			object.valor_plano = converterDouble(object.valor_plano);
 			return object;
 		}
 		return object;
@@ -99,6 +102,7 @@ public class Chamada {
 		if (object.tempo > 60) {
 			object.tarifa = object.cota(object)*1.1;
 			object.valor_plano = object.tarifa * (object.tempo - 60);
+			object.valor_plano = converterDouble(object.valor_plano);
 			return object;
 		}
 		return object;
@@ -109,6 +113,7 @@ public class Chamada {
 		if (object.tempo > 120) {
 			object.tarifa = object.cota(object)*1.1;
 			object.valor_plano = object.tarifa * (object.tempo - 120);
+			object.valor_plano = converterDouble(object.valor_plano);
 			return object;
 		}
 		return object;
@@ -116,6 +121,7 @@ public class Chamada {
 	public Chamada tarifaNormal(Chamada object) {
 		object.valor_normal = object.cota(object);
 		object.valor_normal = object.valor_normal * object.tempo;
+		object.valor_normal = converterDouble(object.valor_normal);
 		return object;
 	}
 
@@ -136,6 +142,15 @@ public class Chamada {
 		} else {
 			return object.tarifa  = 0;
 		}
+	}
+	
+	public static double converterDouble(double precoDouble) {
+	    DecimalFormat fmt = new DecimalFormat("0.00");      
+	    String string = fmt.format(precoDouble);
+	    String[] part = string.split("[,]");
+	    String string2 = part[0]+"."+part[1];
+	        double preco = Double.parseDouble(string2);
+	    return preco;
 	}
 
 	public enum TipoPlano {
