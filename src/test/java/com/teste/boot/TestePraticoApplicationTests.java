@@ -18,6 +18,9 @@ class TestePraticoApplicationTests {
 	@Autowired
 	private CalcularChamadaService chamada;
 	
+	/*
+	 * Testes apenas dos métodos que fazem a manipulação de valores que são de extrema importância
+	*/
 	@Test
 	public void calcularTestFaleMais30() {		
 		Chamada objeto = new Chamada();
@@ -27,8 +30,8 @@ class TestePraticoApplicationTests {
 		objeto.setTipo_plano("FaleMais30");
 		objeto.setTempo(20);
 		chamada.calcular(objeto);
-		assertEquals("0.0",String.valueOf(objeto.getValor_plano()));
-		assertEquals("38.0",  String.valueOf(objeto.getValor_normal()));
+		assertEquals("0,00",objeto.getValor_plano());
+		assertEquals("38,00",objeto.getValor_normal());
 	}
 	
 	@Test
@@ -40,8 +43,8 @@ class TestePraticoApplicationTests {
 		objeto.setTipo_plano("FaleMais60");
 		objeto.setTempo(80);
 		chamada.calcular(objeto);
-		assertEquals("37.4",String.valueOf(objeto.getValor_plano()));
-		assertEquals("136.0",  String.valueOf(objeto.getValor_normal()));
+		assertEquals("37,40",objeto.getValor_plano());
+		assertEquals("136,00",objeto.getValor_normal());
 	}
 	
 	@Test
@@ -53,8 +56,9 @@ class TestePraticoApplicationTests {
 		objeto.setTipo_plano("FaleMais120");
 		objeto.setTempo(200);		
 		chamada.calcular(objeto);
-		assertEquals("167.2",String.valueOf(objeto.getValor_plano()));
-		assertEquals("380.0",  String.valueOf(objeto.getValor_normal()));
+		assertEquals("167,20",objeto.getValor_plano());
+		assertEquals("380,00", objeto.getValor_normal());
 	}
+		
 
 }

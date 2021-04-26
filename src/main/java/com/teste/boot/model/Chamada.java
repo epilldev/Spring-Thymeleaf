@@ -2,9 +2,7 @@ package com.teste.boot.model;
 
 import java.text.DecimalFormat;
 
-/*
- * Classe que contém os atributos do objeto para ser instânciado e depois manipulado 
- */
+
 public class Chamada {	
 
 	protected String codigo_origem;
@@ -12,10 +10,10 @@ public class Chamada {
 	private String nome;
 	protected int tempo = 0;
 	protected double tarifa = 0;
-	protected double valor_plano = 0;
-	protected double valor_normal = 0;
+	protected String valor_plano = "0,00";
+	protected String valor_normal = "0,00";
 	private String tipo_plano;
-
+	DecimalFormat df = new DecimalFormat("###,###.00");
 	
 	
 	
@@ -60,19 +58,19 @@ public class Chamada {
 		this.tarifa = tarifa;
 	}
 
-	public double getValor_plano() {
+	public String getValor_plano() {
 		return valor_plano;
 	}
 
-	public void setValor_plano(double valor_plano) {
+	public void setValor_plano(String valor_plano) {
 		this.valor_plano = valor_plano;
 	}
 
-	public double getValor_normal() {
+	public String getValor_normal() {
 		return valor_normal;
 	}
 
-	public void setValor_normal(double valor_normal) {
+	public void setValor_normal(String valor_normal) {
 		this.valor_normal = valor_normal;
 	}
 
@@ -90,8 +88,7 @@ public class Chamada {
 
 		if (object.tempo > 30) {
 			object.tarifa = object.cota(object)*1.1;
-			object.valor_plano = object.tarifa * (object.tempo - 30);
-			object.valor_plano = converterDouble(object.valor_plano);
+			object.valor_plano = (df.format(object.tarifa *(object.tempo - 30))).toString();
 			return object;
 		}
 		return object;
@@ -101,8 +98,7 @@ public class Chamada {
 
 		if (object.tempo > 60) {
 			object.tarifa = object.cota(object)*1.1;
-			object.valor_plano = object.tarifa * (object.tempo - 60);
-			object.valor_plano = converterDouble(object.valor_plano);
+			object.valor_plano = (df.format(object.tarifa *(object.tempo - 60))).toString();
 			return object;
 		}
 		return object;
@@ -112,16 +108,13 @@ public class Chamada {
 
 		if (object.tempo > 120) {
 			object.tarifa = object.cota(object)*1.1;
-			object.valor_plano = object.tarifa * (object.tempo - 120);
-			object.valor_plano = converterDouble(object.valor_plano);
+			object.valor_plano = (df.format(object.tarifa *(object.tempo - 120))).toString();
 			return object;
 		}
 		return object;
 	}
 	public Chamada tarifaNormal(Chamada object) {
-		object.valor_normal = object.cota(object);
-		object.valor_normal = object.valor_normal * object.tempo;
-		object.valor_normal = converterDouble(object.valor_normal);
+		object.valor_normal = (df.format(object.cota(object) * object.tempo)).toString();		
 		return object;
 	}
 
@@ -144,15 +137,6 @@ public class Chamada {
 		}
 	}
 	
-	public static double converterDouble(double precoDouble) {
-	    DecimalFormat fmt = new DecimalFormat("0.00");      
-	    String string = fmt.format(precoDouble);
-	    String[] part = string.split("[,]");
-	    String string2 = part[0]+"."+part[1];
-	        double preco = Double.parseDouble(string2);
-	    return preco;
-	}
-
 	public enum TipoPlano {
 		FaleMais30, FaleMais60, FaleMais120
 	}

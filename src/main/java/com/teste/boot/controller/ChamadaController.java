@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.teste.boot.model.Chamada;
 import com.teste.boot.service.CalcularChamadaService;
 
-/*
- * Classe que contém as chamadas das telas, e faz a intermediação
- */
 
 @Controller
 @RequestMapping("/chamadas")
